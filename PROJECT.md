@@ -15,6 +15,7 @@ One-page website for Cero Yuyo, a lawn care service in Tacuarembó, Uruguay, run
 - Hosted on Cloudflare Workers static assets, free workers.dev URL for now. No custom domain until the owner decides.
 
 ## Status
+- Lockfile regenerated with Node 24.22.1 to fix Cloudflare npm ci failure.
 - [x] Task 1: scaffold (Astro + Tailwind, wrangler config, placeholder home and 404)
 - [ ] Design direction and palette
 - [ ] Home page content
