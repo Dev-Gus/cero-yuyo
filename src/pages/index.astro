@@ -1,4 +1,6 @@
 ---
+import WhatsAppLink from '../components/WhatsAppLink.astro';
+import { site } from '../data/site';
 import '../styles/global.css';
 ---
 
@@ -7,12 +9,103 @@ import '../styles/global.css';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cero Yuyo</title>
+    <link rel="icon" href="data:," />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <meta name="robots" content="noindex" />
   </head>
   <body>
-    <main class="p-6">
-      <h1 class="text-2xl font-bold">Cero Yuyo</h1>
-      <p>Corte de pasto y jardinería en Tacuarembó.</p>
+    <a class="skip-link button" href="#contenido">{site.skipLink}</a>
+    <header class="site-header container">
+      <span class="wordmark">{site.name}</span>
+      <WhatsAppLink label={site.headerButton} />
+    </header>
+
+    <main id="contenido" tabindex="-1">
+      <div class="container">
+        <section class="hero" aria-labelledby="hero-title">
+          <p class="eyebrow">{site.hero.eyebrow}</p>
+          <h1 id="hero-title">{site.hero.heading}</h1>
+          <p class="hero-description">{site.hero.text}</p>
+          <WhatsAppLink label={site.photoButton} />
+          {site.heroImage && (
+            <img
+              class="hero-image"
+              src={site.heroImage.src}
+              alt={site.heroImage.alt}
+              width={site.heroImage.width}
+              height={site.heroImage.height}
+              fetchpriority="high"
+            />
+          )}
+        </section>
+
+        <section class="section services" aria-labelledby="services-title">
+          <h2 id="services-title">{site.services.heading}</h2>
+          <ul class="service-list">
+            {site.services.items.map((item) => (
+              <li>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="section process" aria-labelledby="process-title">
+          <h2 id="process-title">{site.process.heading}</h2>
+          <ol class="step-list">
+            {site.process.steps.map((step) => (
+              <li>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        {site.jobs.length > 0 && (
+          <section class="section" aria-labelledby="jobs-title">
+            <h2 id="jobs-title">{site.jobsHeading}</h2>
+            <div class="job-list">
+              {site.jobs.map((job) => (
+                <figure>
+                  <img
+                    src={job.photo.src}
+                    alt={job.photo.alt}
+                    width={job.photo.width}
+                    height={job.photo.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>{job.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section class="section about" aria-labelledby="about-title">
+          <h2 id="about-title">{site.about.heading}</h2>
+          <p>{site.about.text}</p>
+        </section>
+
+        <section class="contact" aria-labelledby="contact-title">
+          <div class="contact-copy">
+            <h2 id="contact-title">{site.contact.heading}</h2>
+            <p>{site.contact.text}</p>
+          </div>
+          <div class="contact-action">
+            <WhatsAppLink label={site.photoButton} />
+            <p class="phone-number">{site.contact.phone}</p>
+          </div>
+        </section>
+      </div>
     </main>
+
+    <footer class="site-footer container">
+      <p>{site.footer.location}</p>
+      <small>{site.footer.credit}</small>
+    </footer>
   </body>
 </html>

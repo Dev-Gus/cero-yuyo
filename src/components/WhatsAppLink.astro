@@ -1,0 +1,11 @@
+---
+import { whatsappUrl } from '../lib/whatsapp';
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<a class="button" href={whatsappUrl()}>{label}</a>

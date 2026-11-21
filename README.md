@@ -1,6 +1,6 @@
 # Cero Yuyo
 
-Scaffold estático de Astro con TypeScript estricto y Tailwind CSS. Leé PROJECT.md antes de trabajar.
+Sitio estático de Cero Yuyo, hecho con Astro, TypeScript estricto y Tailwind CSS. Leé PROJECT.md antes de trabajar.
 
 ## Node e instalación
 
@@ -37,8 +37,18 @@ El build genera `dist/`. Preview permite revisar ese resultado localmente.
 - Las rutas inexistentes usan `dist/404.html` con estado 404 (`not_found_handling: "404-page"`).
 - URL de Workers: `workers.dev`; sin dominio personalizado.
 
-Para desplegar cuando se autorice, ejecutá el build y luego `npx wrangler deploy` con una cuenta de Cloudflare autenticada. Este scaffold no realiza ningún despliegue.
+La conexión Git de Cloudflare usa este repositorio. Para un despliegue manual autorizado, ejecutá el build y luego `npx wrangler deploy` con una cuenta de Cloudflare autenticada.
 
 ## Alcance actual
 
-Solo existen `/` y la página 404, en español (`es-UY`), sin JavaScript cliente. Los colores neutros provisionales y la tipografía de sistema están centralizados en `src/styles/global.css`. El contenido y el diseño quedan pendientes.
+Existen `/` y la página 404, en español (`es-UY`), sin JavaScript cliente ni dependencias nuevas. La página incluye servicios, proceso, presentación de Gustavo y contacto exclusivo por WhatsApp.
+
+- Texto y tipos: `src/data/site.ts`.
+- Enlace compartido de WhatsApp: `src/lib/whatsapp.ts` y `src/components/WhatsAppLink.astro`.
+- Paleta, tipografía y medidas: `src/styles/global.css`; decisiones documentadas en `DESIGN.md`.
+- `heroImage` es opcional; si no existe, no se genera una imagen ni un contenedor vacío.
+- `jobs` es un array tipado vacío; Trabajos solo se genera al agregar trabajos reales.
+- `noindex` está activo hasta que el contador responda. **Retirarlo antes de promocionar el sitio.**
+- Se omite canonical mientras no haya una URL completa de Workers en la configuración. Datos estructurados, imagen social y analítica quedan fuera de esta tarea.
+
+Los archivos locales de verificación se guardan en `.qa/`, ignorado por Git. Lighthouse se ejecuta como herramienta temporal, sin modificar las dependencias del proyecto.

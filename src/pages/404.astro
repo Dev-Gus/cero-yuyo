@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { site } from '../data/site';
 ---
 
 <!doctype html>
@@ -7,11 +8,13 @@ import '../styles/global.css';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Página no encontrada | Cero Yuyo</title>
+    <link rel="icon" href="data:," />
+    <title>{site.notFound.title}</title>
+    <meta name="robots" content="noindex" />
   </head>
   <body>
-    <main class="p-6">
-      <h1 class="text-2xl font-bold">Página no encontrada</h1>
+    <main class="container not-found">
+      <h1>{site.notFound.heading}</h1>
     </main>
   </body>
 </html>
