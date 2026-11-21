@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+  /* Colores neutros provisionales; la paleta queda pendiente. */
+  --color-background: #ffffff;
+  --color-text: #222222;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
