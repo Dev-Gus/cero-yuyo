@@ -25,13 +25,13 @@ interface SiteContent {
   whatsapp: { number: string; message: string };
   hero: { eyebrow: string; heading: string; text: string };
   heroImage?: SiteImage;
-  services: { heading: string; items: ContentItem[] };
+  services: { heading: string; items: ContentItem[]; note: string };
   process: { heading: string; steps: ContentItem[] };
   jobsHeading: string;
   jobs: Job[];
   about: { heading: string; text: string };
   contact: { heading: string; text: string; phone: string };
-  footer: { location: string; credit: string };
+  footer: { location: string; copyright: string; credit: string };
   notFound: { title: string; heading: string };
 }
 
@@ -39,7 +39,7 @@ export const site: SiteContent = {
   name: 'Cero Yuyo',
   title: 'Cero Yuyo | Corte de pasto y jardinería en Tacuarembó',
   description:
-    'Corte de pasto, bordeado, limpieza y plantación de arbustos chicos en la ciudad de Tacuarembó, Uruguay. Mandame una foto del terreno y te paso el presupuesto gratis.',
+    'Corte de pasto, poda, bordeado, limpieza y jardinería en la ciudad de Tacuarembó, Uruguay. Mandame una foto del terreno y te paso el presupuesto gratis.',
   skipLink: 'Saltar al contenido',
   headerButton: 'Escribime',
   photoButton: 'Mandame una foto del terreno',
@@ -58,12 +58,14 @@ export const site: SiteContent = {
     items: [
       { title: 'Corte de pasto', text: 'Patios, jardines y terrenos de la ciudad.' },
       { title: 'Bordeado', text: 'Bordes prolijos junto a veredas, paredes y canteros.' },
-      { title: 'Limpieza', text: 'Saco los yuyos y dejo el terreno limpio.' },
+      { title: 'Limpieza de terrenos', text: 'Saco los yuyos y dejo el terreno limpio.' },
       {
-        title: 'Plantación de arbustos chicos',
-        text: 'Para darle forma y color a tu jardín.',
+        title: 'Poda de arbustos y árboles chicos',
+        text: 'Para mantener el jardín prolijo y cuidado.',
       },
+      { title: 'Canteros y plantaciones', text: 'Limpio canteros y hago plantaciones chicas.' },
     ],
+    note: 'Si necesitás algo de jardinería que no está acá, consultame.',
   },
   process: {
     heading: 'Cómo trabajo',
@@ -94,7 +96,8 @@ export const site: SiteContent = {
     phone: 'WhatsApp 098 871 858',
   },
   footer: {
-    location: 'Cero Yuyo · Tacuarembó, Uruguay',
+    location: 'Corte de pasto y jardinería en la ciudad de Tacuarembó, Uruguay.',
+    copyright: '© 2026 Cero Yuyo',
     credit: 'Sitio por Tacuara Lab',
   },
   notFound: {

@@ -6,7 +6,8 @@ One-page website for Cero Yuyo, a lawn care service in Tacuarembó, Uruguay, run
 ## Decisions
 - Name: Cero Yuyo (exact spelling, two words).
 - Spanish only, single page, plain direct Spanish (voseo), no jargon.
-- Services offered today: corte de pasto, bordeado, limpieza, plantación de arbustos chicos. No poda (pruning). Nothing else.
+- Services offered today: Corte de pasto; Bordeado; Limpieza de terrenos; Poda de arbustos y árboles chicos; Canteros y plantaciones.
+- Pruning is offered for small shrubs and trees. The owner has no ladder yet, so no tall work.
 - No price list. The hook is: "Mandame una foto del terreno" and get a free quote.
 - Contact: WhatsApp only. Number: wa.me/59898871858 with a prefilled message. No form, no email.
 - Honest label: the site states it is Gustavo's own business, built by Tacuara Lab. No fake testimonials, no fake or stock photos of jobs, no "coming soon".
@@ -21,6 +22,9 @@ One-page website for Cero Yuyo, a lawn care service in Tacuarembó, Uruguay, run
 - Hosted on Cloudflare Workers static assets, free workers.dev URL for now. No custom domain until the owner decides.
 
 ## Status
+- [x] Visual/copy polish (2026-11-21): five exact services and centered consultation note, updated description, shared decorative grass mark/SVG favicon and chat icon, centered tinted closing section, linked phone numbers and green responsive footer with in-page navigation. Palette, section order, other copy, WhatsApp message and noindex preserved.
+- [x] Polish verification: npm ci/build passed; astro check 0 errors/warnings/hints. Home 200, missing route 404, favicon 200. One H1, no client scripts, no empty visible blocks, no added image asset except public/favicon.svg. Five identical encoded WhatsApp links, phone tap targets 48px, navigation/focus and mobile/desktop screenshots reviewed. No overflow at 375/768/1024/1280/1536px. .qa/ remains ignored and untracked.
+- [x] Polish Lighthouse mobile (2026-11-21, v13.6.0): Performance 99, Accessibility 100, Best Practices 100, SEO 60 (intentional noindex); device CPU calibration warning. Local report: .qa/polish-lighthouse.report.html.
 - Lockfile regenerated with Node 24.22.1 to fix Cloudflare npm ci failure.
 - [x] Task 1: scaffold (Astro + Tailwind, wrangler config, placeholder home and 404)
 - [x] Cloudflare Git connection: GitHub app access to this repo fixed on 2026-11-21; first build triggered after GitHub app access was fixed; result pending.

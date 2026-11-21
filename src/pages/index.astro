@@ -1,5 +1,7 @@
 ---
 import WhatsAppLink from '../components/WhatsAppLink.astro';
+import LogoMark from '../components/LogoMark.astro';
+import PageHead from '../components/PageHead.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 ---
@@ -7,17 +9,12 @@ import '../styles/global.css';
 <!doctype html>
 <html lang="es-UY">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="data:," />
-    <title>{site.title}</title>
-    <meta name="description" content={site.description} />
-    <meta name="robots" content="noindex" />
+    <PageHead title={site.title} description={site.description} />
   </head>
   <body>
     <a class="skip-link button" href="#contenido">{site.skipLink}</a>
     <header class="site-header container">
-      <span class="wordmark">{site.name}</span>
+      <span class="wordmark"><LogoMark />{site.name}</span>
       <WhatsAppLink label={site.headerButton} />
     </header>
 
@@ -40,7 +37,7 @@ import '../styles/global.css';
           )}
         </section>
 
-        <section class="section services" aria-labelledby="services-title">
+        <section id="que-hago" class="section services" aria-labelledby="services-title">
           <h2 id="services-title">{site.services.heading}</h2>
           <ul class="service-list">
             {site.services.items.map((item) => (
@@ -50,9 +47,10 @@ import '../styles/global.css';
               </li>
             ))}
           </ul>
+          <p class="services-note">{site.services.note}</p>
         </section>
 
-        <section class="section process" aria-labelledby="process-title">
+        <section id="como-trabajo" class="section process" aria-labelledby="process-title">
           <h2 id="process-title">{site.process.heading}</h2>
           <ol class="step-list">
             {site.process.steps.map((step) => (
@@ -85,7 +83,7 @@ import '../styles/global.css';
           </section>
         )}
 
-        <section class="section about" aria-labelledby="about-title">
+        <section id="quien-soy" class="section about" aria-labelledby="about-title">
           <h2 id="about-title">{site.about.heading}</h2>
           <p>{site.about.text}</p>
         </section>
@@ -97,15 +95,30 @@ import '../styles/global.css';
           </div>
           <div class="contact-action">
             <WhatsAppLink label={site.photoButton} />
-            <p class="phone-number">{site.contact.phone}</p>
+            <WhatsAppLink label={site.contact.phone} variant="number" />
           </div>
         </section>
       </div>
     </main>
 
-    <footer class="site-footer container">
-      <p>{site.footer.location}</p>
-      <small>{site.footer.credit}</small>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <span class="wordmark"><LogoMark />{site.name}</span>
+            <p>{site.footer.location}</p>
+          </div>
+          <div class="footer-contact">
+            <nav class="footer-nav">
+              <a href="#que-hago">{site.services.heading}</a>
+              <a href="#como-trabajo">{site.process.heading}</a>
+              <a href="#quien-soy">{site.about.heading}</a>
+            </nav>
+            <WhatsAppLink label={site.contact.phone} variant="number" />
+          </div>
+        </div>
+        <div class="footer-bottom"><p>{site.footer.copyright}</p><small>{site.footer.credit}</small></div>
+      </div>
     </footer>
   </body>
 </html>

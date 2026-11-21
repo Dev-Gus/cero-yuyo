@@ -1,16 +1,13 @@
 ---
 import '../styles/global.css';
 import { site } from '../data/site';
+import PageHead from '../components/PageHead.astro';
 ---
 
 <!doctype html>
 <html lang="es-UY">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="data:," />
-    <title>{site.notFound.title}</title>
-    <meta name="robots" content="noindex" />
+    <PageHead title={site.notFound.title} />
   </head>
   <body>
     <main class="container not-found">

@@ -19,11 +19,13 @@ Las combinaciones de texto, botones, hover y foco superan WCAG AA. El foco usa v
 
 ## Composición y accesibilidad
 
-- Encabezado con nombre de texto y botón a WhatsApp.
+- Encabezado con nombre de texto, marca decorativa compartida de tres hojas de pasto y botón a WhatsApp. Marca de altura de mayúsculas; mismo dibujo en el favicon SVG. En el footer se apoya sobre crema para conservar los colores de las hojas.
 - Hero de fondo verde, texto crema y una línea pequeña lima. Sin foto ni contenedor de imagen vacío. `heroImage?: SiteImage` permite agregar una imagen con `src`, `alt`, `width` y `height` desde el contenido tipado.
-- Servicios como lista simple; dos columnas donde hay espacio y una en pantallas pequeñas.
+- Cinco servicios como lista simple; dos columnas donde hay espacio, con el último ocupando la fila completa, y una en pantallas pequeñas. Nota centrada debajo.
 - Proceso como lista ordenada; tres columnas en escritorio y una en móvil.
-- Presentación personal y cierre con la zona de atención y WhatsApp.
+- Cierre centrado, ancho de lectura limitado y fondo de mezcla de 6% verde con crema, sin cambiar la paleta. Número como enlace con objetivo táctil mínimo de 44px.
+- Footer verde con texto crema, navegación interna y WhatsApp; dos columnas en escritorio, una centrada en móvil. Foco crema sobre verde. Contraste de texto verde sobre el fondo del cierre: 6,80:1.
+- Botones y números reutilizan WhatsAppLink, con un icono de conversación decorativo compartido, sin logo oficial. Head común para inicio y 404.
 - `jobs: Job[]` empieza vacío. La sección Trabajos completa, incluido su título, solo existe cuando hay trabajos reales.
 - Un H1, jerarquía de títulos, regiones con nombre, foco visible y enlace de salto «Saltar al contenido». Esta etiqueta funcional acompaña el enlace de accesibilidad solicitado; el texto comercial es el suministrado.
 - Contenido estático disponible sin JavaScript y sin scripts de cliente.
