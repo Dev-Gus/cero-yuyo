@@ -17,7 +17,7 @@ One-page website for Cero Yuyo, a lawn care service in Tacuarembó, Uruguay, run
 ## Status
 - Lockfile regenerated with Node 24.22.1 to fix Cloudflare npm ci failure.
 - [x] Task 1: scaffold (Astro + Tailwind, wrangler config, placeholder home and 404)
-- [x] Cloudflare Git connection: GitHub app access to this repo fixed on 2026-11-21; first successful build pending.
+- [x] Cloudflare Git connection: GitHub app access to this repo fixed on 2026-11-21; first build triggered after GitHub app access was fixed; result pending.
 - [ ] Design direction and palette
 - [ ] Home page content
 - [ ] SEO, structured data, social preview image
