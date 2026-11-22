@@ -80,7 +80,6 @@ export const site: SiteContent = {
       },
       { title: 'Canteros y plantaciones', text: 'Limpio canteros y hago plantaciones chicas.' },
     ],
-    note: 'Si necesitás algo de jardinería que no está acá, consultame.',
   },
   process: {
     heading: 'Cómo trabajo',
@@ -149,11 +148,10 @@ export const site: SiteContent = {
   ],
   about: {
     heading: 'Quién soy',
-    text: 'Soy Gustavo, de Tacuarembó. Cero Yuyo es mi propio servicio de corte de pasto y jardinería. Esta web la hice yo mismo con Tacuara Lab, mi estudio de páginas web.',
+    text: 'Soy Gustavo, de Tacuarembó. Voy yo mismo a cada trabajo, sin intermediarios. Mandame una foto del terreno y coordinamos.',
   },
   contact: {
     heading: 'Atiendo en la ciudad de Tacuarembó',
-    text: 'Trabajo solo dentro de la ciudad de Tacuarembó.',
     phone: 'WhatsApp 098 871 858',
   },
   footer: {
