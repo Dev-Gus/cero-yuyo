@@ -34,7 +34,7 @@ Las combinaciones de texto, botones, hover y foco superan WCAG AA. El foco usa v
 
 El texto está centralizado en `src/data/site.ts`. `src/lib/whatsapp.ts` construye un único enlace con `encodeURIComponent`; todos los botones usan `WhatsAppLink.astro`.
 
-El área de atención es únicamente la ciudad de Tacuarembó. No se agregan precios, testimonios ni otros servicios. Solo se publican las fotografías reales seleccionadas y revisadas por privacidad: hero y pares originales 1 y 3. Los originales quedan en `photos-originals/`, ignorados; se usan únicamente copias WebP sin metadata en `src/assets/photos/`. Tacuara Lab aparece como texto, sin enlace.
+El área de atención es únicamente la ciudad de Tacuarembó. No se agregan precios, testimonios ni otros servicios. Solo se publican las fotografías reales seleccionadas y revisadas por privacidad: hero y pares originales 1, 3, 6 y 8. Los originales quedan en `photos-originals/`, ignorados; se usan únicamente copias WebP sin metadata en `src/assets/photos/`. Tacuara Lab aparece como texto, sin enlace.
 
 ## Indexación
 

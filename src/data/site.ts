@@ -4,6 +4,10 @@ import job1Before from '../assets/photos/job1-before.webp';
 import job1After from '../assets/photos/job1-after.webp';
 import job2Before from '../assets/photos/job2-before.webp';
 import job2After from '../assets/photos/job2-after.webp';
+import job3Before from '../assets/photos/job3-before.webp';
+import job3After from '../assets/photos/job3-after.webp';
+import job4Before from '../assets/photos/job4-before.webp';
+import job4After from '../assets/photos/job4-after.webp';
 
 export interface SiteImage {
   src: ImageMetadata;
@@ -117,6 +121,28 @@ export const site: SiteContent = {
       after: {
         src: job2After,
         alt: 'Después: pasto cortado alrededor de canteros con flores en el jardín.',
+      },
+      description: '',
+    },
+    {
+      before: {
+        src: job3Before,
+        alt: 'Antes: pasto alto junto a un alambrado y un árbol, al borde de una calle.',
+      },
+      after: {
+        src: job3After,
+        alt: 'Después: franja de pasto cortado junto al alambrado y la calle.',
+      },
+      description: '',
+    },
+    {
+      before: {
+        src: job4Before,
+        alt: 'Antes: pasto alto y montones de vegetación cortada junto a un alambrado.',
+      },
+      after: {
+        src: job4After,
+        alt: 'Después: terreno con pasto corto y restos de vegetación junto al alambrado, con un campo al fondo.',
       },
       description: '',
     },
