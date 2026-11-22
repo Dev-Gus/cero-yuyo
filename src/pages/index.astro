@@ -1,9 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import WhatsAppLink from '../components/WhatsAppLink.astro';
 import LogoMark from '../components/LogoMark.astro';
 import PageHead from '../components/PageHead.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
+
+const jobs = site.jobs.filter((job) => job.before?.src && job.after?.src);
+const hasJobs = jobs.length > 0;
 ---
 
 <!doctype html>
@@ -20,19 +24,25 @@ import '../styles/global.css';
 
     <main id="contenido" tabindex="-1">
       <div class="container">
-        <section class="hero" aria-labelledby="hero-title">
-          <p class="eyebrow">{site.hero.eyebrow}</p>
-          <h1 id="hero-title">{site.hero.heading}</h1>
-          <p class="hero-description">{site.hero.text}</p>
-          <WhatsAppLink label={site.photoButton} />
+        <section class:list={['hero', { 'hero-with-photo': site.heroImage }]} aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">{site.hero.eyebrow}</p>
+            <h1 id="hero-title">{site.hero.heading}</h1>
+            <p class="hero-description">{site.hero.text}</p>
+            <WhatsAppLink label={site.photoButton} />
+          </div>
           {site.heroImage && (
-            <img
+            <Image
               class="hero-image"
               src={site.heroImage.src}
               alt={site.heroImage.alt}
-              width={site.heroImage.width}
-              height={site.heroImage.height}
+              widths={[320, 480, 640, 960, 1254]}
+              sizes="(min-width: 1280px) 464px, (min-width: 1024px) 40vw, (min-width: 480px) 81vw, calc(100vw - 5rem)"
+              format="webp"
+              quality={80}
+              loading="eager"
               fetchpriority="high"
+              decoding="async"
             />
           )}
         </section>
@@ -62,22 +72,43 @@ import '../styles/global.css';
           </ol>
         </section>
 
-        {site.jobs.length > 0 && (
-          <section class="section" aria-labelledby="jobs-title">
+        {hasJobs && (
+          <section id="trabajos" class="section jobs" aria-labelledby="jobs-title">
             <h2 id="jobs-title">{site.jobsHeading}</h2>
+            <p class="jobs-intro">{site.jobsIntro}</p>
             <div class="job-list">
-              {site.jobs.map((job) => (
-                <figure>
-                  <img
-                    src={job.photo.src}
-                    alt={job.photo.alt}
-                    width={job.photo.width}
-                    height={job.photo.height}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption>{job.caption}</figcaption>
-                </figure>
+              {jobs.map((job) => (
+                <div class="job">
+                  <div class="job-pair">
+                    <figure>
+                      <Image
+                        src={job.before.src}
+                        alt={job.before.alt}
+                        widths={[360, 540, 720, 1080, 1440]}
+                        sizes="(min-width: 1218px) 544px, (min-width: 768px) calc(46vw - 1rem), (min-width: 400px) 92vw, calc(100vw - 2rem)"
+                        format="webp"
+                        quality={80}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption class="job-label">Antes</figcaption>
+                    </figure>
+                    <figure>
+                      <Image
+                        src={job.after.src}
+                        alt={job.after.alt}
+                        widths={[360, 540, 720, 1080, 1440]}
+                        sizes="(min-width: 1218px) 544px, (min-width: 768px) calc(46vw - 1rem), (min-width: 400px) 92vw, calc(100vw - 2rem)"
+                        format="webp"
+                        quality={80}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption class="job-label">Después</figcaption>
+                    </figure>
+                  </div>
+                  {job.description && <p class="job-description">{job.description}</p>}
+                </div>
               ))}
             </div>
           </section>
@@ -112,6 +143,7 @@ import '../styles/global.css';
             <nav class="footer-nav">
               <a href="#que-hago">{site.services.heading}</a>
               <a href="#como-trabajo">{site.process.heading}</a>
+              {hasJobs && <a href="#trabajos">Trabajos</a>}
               <a href="#quien-soy">{site.about.heading}</a>
             </nav>
             <WhatsAppLink label={site.contact.phone} variant="number" />

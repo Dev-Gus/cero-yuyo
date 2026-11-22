@@ -1,13 +1,19 @@
+import type { ImageMetadata } from 'astro';
+import hero from '../assets/photos/hero.webp';
+import job1Before from '../assets/photos/job1-before.webp';
+import job1After from '../assets/photos/job1-after.webp';
+import job2Before from '../assets/photos/job2-before.webp';
+import job2After from '../assets/photos/job2-after.webp';
+
 export interface SiteImage {
-  src: string;
+  src: ImageMetadata;
   alt: string;
-  width: number;
-  height: number;
 }
 
 export interface Job {
-  photo: SiteImage;
-  caption: string;
+  before: SiteImage;
+  after: SiteImage;
+  description?: string;
 }
 
 interface ContentItem {
@@ -28,6 +34,7 @@ interface SiteContent {
   services: { heading: string; items: ContentItem[]; note: string };
   process: { heading: string; steps: ContentItem[] };
   jobsHeading: string;
+  jobsIntro: string;
   jobs: Job[];
   about: { heading: string; text: string };
   contact: { heading: string; text: string; phone: string };
@@ -52,6 +59,10 @@ export const site: SiteContent = {
     eyebrow: 'Cero Yuyo · Tacuarembó',
     heading: 'Corte de pasto y jardinería en Tacuarembó',
     text: 'Mandame una foto del terreno y te paso el presupuesto gratis.',
+  },
+  heroImage: {
+    src: hero,
+    alt: 'Gustavo al aire libre, con sombrero y una bordeadora apoyada en el hombro.',
   },
   services: {
     heading: 'Qué hago',
@@ -84,8 +95,32 @@ export const site: SiteContent = {
       },
     ],
   },
-  jobsHeading: 'Trabajos',
-  jobs: [],
+  jobsHeading: 'Trabajos recientes',
+  jobsIntro: 'Antes y después de trabajos reales en Tacuarembó.',
+  jobs: [
+    {
+      before: {
+        src: job1Before,
+        alt: 'Antes: pasto alto junto a un árbol y un muro en una franja de terreno junto a la calle.',
+      },
+      after: {
+        src: job1After,
+        alt: 'Después: pasto cortado alrededor del árbol y junto al muro en la misma franja de terreno.',
+      },
+      description: '',
+    },
+    {
+      before: {
+        src: job2Before,
+        alt: 'Antes: jardín con pasto alto alrededor de un arbusto de flores violetas y una reja roja.',
+      },
+      after: {
+        src: job2After,
+        alt: 'Después: pasto cortado alrededor de canteros con flores en el jardín.',
+      },
+      description: '',
+    },
+  ],
   about: {
     heading: 'Quién soy',
     text: 'Soy Gustavo, de Tacuarembó. Cero Yuyo es mi propio servicio de corte de pasto y jardinería. Esta web la hice yo mismo con Tacuara Lab, mi estudio de páginas web.',

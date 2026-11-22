@@ -20,13 +20,13 @@ Las combinaciones de texto, botones, hover y foco superan WCAG AA. El foco usa v
 ## Composición y accesibilidad
 
 - Encabezado con nombre de texto, marca decorativa compartida de tres hojas de pasto y botón a WhatsApp. Marca de altura de mayúsculas; mismo dibujo en el favicon SVG. En el footer se apoya sobre crema para conservar los colores de las hojas.
-- Hero de fondo verde, texto crema y una línea pequeña lima. Sin foto ni contenedor de imagen vacío. `heroImage?: SiteImage` permite agregar una imagen con `src`, `alt`, `width` y `height` desde el contenido tipado.
+- Hero de fondo verde, texto crema y una línea pequeña lima. Texto a la izquierda y foto del propietario con su bordeadora a la derecha desde 1024px; texto primero y foto debajo en móvil. Foto completa, sin recorte, con los radios compartidos. `heroImage?: SiteImage` usa `src` con metadata de Astro y `alt`; si falta, no deja contenedor vacío. Astro Image genera dimensiones y tamaños responsivos; carga eager con prioridad alta para el hero.
 - Cinco servicios como lista simple; dos columnas donde hay espacio, con el último ocupando la fila completa, y una en pantallas pequeñas. Nota centrada debajo.
 - Proceso como lista ordenada; tres columnas en escritorio y una en móvil.
 - Cierre centrado, ancho de lectura limitado y fondo de mezcla de 6% verde con crema, sin cambiar la paleta. Número como enlace con objetivo táctil mínimo de 44px.
 - Footer verde con texto crema, navegación interna y WhatsApp; dos columnas en escritorio, una centrada en móvil. Foco crema sobre verde. Contraste de texto verde sobre el fondo del cierre: 6,80:1.
 - Botones y números reutilizan WhatsAppLink, con un icono de conversación decorativo compartido, sin logo oficial. Head común para inicio y 404.
-- `jobs: Job[]` empieza vacío. La sección Trabajos completa, incluido su título, solo existe cuando hay trabajos reales.
+- `jobs: Job[]` contiene pares `before`/`after` (imagen importada y alt) y una descripción opcional vacía. Trabajos recientes se ubica entre Cómo trabajo y Quién soy, con la introducción suministrada. Cada pareja queda lado a lado desde 768px y apilada en móvil, sin recortar las fotos, con etiquetas visibles «Antes»/«Después» en crema y verde. Imágenes responsivas de Astro con carga lazy. La sección completa y su enlace «Trabajos» del footer solo existen si hay al menos una pareja completa; la descripción solo se renderiza si tiene contenido.
 - Un H1, jerarquía de títulos, regiones con nombre, foco visible y enlace de salto «Saltar al contenido». Esta etiqueta funcional acompaña el enlace de accesibilidad solicitado; el texto comercial es el suministrado.
 - Contenido estático disponible sin JavaScript y sin scripts de cliente.
 
@@ -34,7 +34,7 @@ Las combinaciones de texto, botones, hover y foco superan WCAG AA. El foco usa v
 
 El texto está centralizado en `src/data/site.ts`. `src/lib/whatsapp.ts` construye un único enlace con `encodeURIComponent`; todos los botones usan `WhatsAppLink.astro`.
 
-El área de atención es únicamente la ciudad de Tacuarembó. No se agregan precios, fotografías, testimonios ni otros servicios. Tacuara Lab aparece como texto, sin enlace.
+El área de atención es únicamente la ciudad de Tacuarembó. No se agregan precios, testimonios ni otros servicios. Solo se publican las fotografías reales seleccionadas y revisadas por privacidad: hero y pares originales 1 y 3. Los originales quedan en `photos-originals/`, ignorados; se usan únicamente copias WebP sin metadata en `src/assets/photos/`. Tacuara Lab aparece como texto, sin enlace.
 
 ## Indexación
 
