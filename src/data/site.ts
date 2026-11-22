@@ -35,13 +35,13 @@ interface SiteContent {
   whatsapp: { number: string; message: string };
   hero: { eyebrow: string; heading: string; text: string };
   heroImage?: SiteImage;
-  services: { heading: string; items: ContentItem[]; note: string };
+  services: { heading: string; items: ContentItem[] };
   process: { heading: string; steps: ContentItem[] };
   jobsHeading: string;
   jobsIntro: string;
   jobs: Job[];
   about: { heading: string; text: string };
-  contact: { heading: string; text: string; phone: string };
+  contact: { heading: string; phone: string };
   footer: { location: string; copyright: string; credit: string };
   notFound: { title: string; heading: string };
 }
