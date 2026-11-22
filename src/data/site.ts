@@ -9,6 +9,17 @@ import job3After from '../assets/photos/job3-after.webp';
 import job4Before from '../assets/photos/job4-before.webp';
 import job4After from '../assets/photos/job4-after.webp';
 
+// Keep false until the accountant confirms whether registration is required to advertise.
+export const INDEXABLE = false;
+export const SITE_URL = 'https://cero-yuyo.tacuaralab.workers.dev';
+
+export const socialImage = {
+  path: '/og-cero-yuyo.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'Pasto alto a la izquierda y pasto cortado a la derecha, junto a un árbol y un muro.',
+};
+
 export interface SiteImage {
   src: ImageMetadata;
   alt: string;
